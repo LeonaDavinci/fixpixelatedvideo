@@ -16,28 +16,31 @@ export default function Footer() {
               </svg>
               PixelFix
             </Link>
-            <p>The fastest way to fix pixelated video online. AI-powered frame-by-frame reconstruction &mdash; free to start, no software required.</p>
+            <p>
+              The fastest way to fix pixelated video online. AI-powered frame-by-frame
+              reconstruction &mdash; free to start, no software required.
+            </p>
           </div>
           <div className="footer-col">
-            <h3>Product</h3>
+            <h2>Product</h2>
             <ul>
               <li><Link href="/">Home</Link></li>
               <li><Link href="/fix">Fix My Video</Link></li>
               <li><Link href="/help">Help Center</Link></li>
-              <li><a href="#faq">FAQ</a></li>
+              <li><a href="/#faq">FAQ</a></li>
             </ul>
           </div>
           <div className="footer-col">
-            <h3>Use Cases</h3>
+            <h2>Use Cases</h2>
             <ul>
-              <li><a href="#">Fix MP4 Pixelation</a></li>
-              <li><a href="#">Repair VHS Footage</a></li>
-              <li><a href="#">Remove Compression Artifacts</a></li>
-              <li><a href="#">Upscale to 4K</a></li>
+              <li><a href="/#use-cases">Fix MP4 Pixelation</a></li>
+              <li><a href="/#use-cases">Repair VHS Footage</a></li>
+              <li><a href="/#problems">Remove Compression Artifacts</a></li>
+              <li><a href="/fix">Upscale to 4K</a></li>
             </ul>
           </div>
           <div className="footer-col">
-            <h3>Company</h3>
+            <h2>Company</h2>
             <ul>
               <li><a href="#">About</a></li>
               <li><a href="#">Privacy Policy</a></li>
@@ -49,9 +52,9 @@ export default function Footer() {
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} PixelFix. All rights reserved.</p>
           <div className="trust-badges">
-            <span className="trust-badge">4.8&#9733; Rated</span>
-            <span className="trust-badge">&#128274; Zero-Retention Privacy</span>
-            <span className="trust-badge">&#128167; No Watermarks</span>
+            <span className="trust-badge">4.8 star rated</span>
+            <span className="trust-badge">Zero-retention privacy</span>
+            <span className="trust-badge">No watermarks</span>
           </div>
         </div>
       </div>

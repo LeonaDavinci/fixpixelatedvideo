@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export default function FixPage() {
@@ -12,7 +11,7 @@ export default function FixPage() {
   const [file, setFile] = useState<File | null>(null);
   const [fileUrl, setFileUrl] = useState('');
   const [videoKey, setVideoKey] = useState(0);
-  const [activeTab, setActiveTab] = useState<'original'|'info'|'progress'>('original');
+  const [activeTab, setActiveTab] = useState<'original' | 'info' | 'progress'>('original');
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -38,10 +37,10 @@ export default function FixPage() {
 
   // Processing step state
   const [steps, setSteps] = useState([
-    { id: 1, label: 'Video Upload & Validation', badge: 'Waiting', cls: 'waiting' },
+    { id: 1, label: 'Video Upload and Validation', badge: 'Waiting', cls: 'waiting' },
     { id: 2, label: 'Damage Analysis', badge: 'Waiting', cls: 'waiting' },
     { id: 3, label: 'Frame Reconstruction', badge: 'Waiting', cls: 'waiting' },
-    { id: 4, label: 'Artifact Removal & Sharpening', badge: 'Waiting', cls: 'waiting' },
+    { id: 4, label: 'Artifact Removal and Sharpening', badge: 'Waiting', cls: 'waiting' },
     { id: 5, label: 'Resolution Upscaling', badge: 'Waiting', cls: 'waiting' },
     { id: 6, label: 'Final Encoding', badge: 'Waiting', cls: 'waiting' },
   ]);
@@ -66,11 +65,10 @@ export default function FixPage() {
     setRepairDone(false);
     setDlShow(false);
 
-    // Simulate upload
     let pct = 0;
     const sizeMB = (f.size / 1024 / 1024).toFixed(1);
     const speed = (Math.random() * 8 + 4).toFixed(1);
-    setUploadSpeed(`${sizeMB} MB · ${speed} MB/s`);
+    setUploadSpeed(`${sizeMB} MB at ${speed} MB/s`);
     const iv = setInterval(() => {
       pct += Math.random() * 12 + 3;
       if (pct >= 100) {
@@ -80,13 +78,12 @@ export default function FixPage() {
         const url = URL.createObjectURL(f);
         setFileUrl(url);
         setVideoKey(k => k + 1);
-        // Reset file input
         if (fileInputRef.current) fileInputRef.current.value = '';
         setActiveTab('original');
       } else {
         setUploadProgress(pct);
         const rem = ((100 - pct) / 100 * parseFloat(sizeMB) / parseFloat(speed) * 10).toFixed(0);
-        setUploadSpeed(`${sizeMB} MB · ${speed} MB/s · ~${rem}s remaining`);
+        setUploadSpeed(`${sizeMB} MB at ${speed} MB/s, ~${rem}s remaining`);
       }
     }, 180);
   }, []);
@@ -109,8 +106,8 @@ export default function FixPage() {
       size: formatBytes(file.size),
       format: file.type || file.name.split('.').pop()?.toUpperCase() || 'MP4',
       duration: dur ? formatTime(dur) : '--',
-      resolution: vw && vh ? `${vw} × ${vh} px` : '--',
-      aspect: vw && vh ? `${vw/g}:${vh/g}` : '--',
+      resolution: vw && vh ? `${vw} x ${vh} px` : '--',
+      aspect: vw && vh ? `${vw / g}:${vh / g}` : '--',
       modified: new Date(file.lastModified).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
     });
   }, [file]);
@@ -153,21 +150,19 @@ export default function FixPage() {
     setShowOverlay(true);
     setOverlayMsg('Analyzing damage patterns...');
 
-    const overlayMsgs = ['Reconstructing pixel data...', 'Sharpening edges frame by frame...', 'Almost done — polishing final output...'];
+    const overlayMsgs = ['Reconstructing pixel data...', 'Sharpening edges frame by frame...', 'Finalizing output...'];
     let oi = 0;
     const oiv = setInterval(() => { oi = (oi + 1) % overlayMsgs.length; setOverlayMsg(overlayMsgs[oi]); }, 2200);
 
     const stepTimes = [800, 1500, 4000, 1800, 2000, 1500];
     const totalTime = stepTimes.reduce((a, b) => a + b, 0);
     const st = Date.now();
-    let tot = 0;
 
     const upd = () => {
       const elapsed = Date.now() - st;
       const pct = Math.min(elapsed / totalTime * 100, 100);
       setOverallPct(Math.floor(pct));
 
-      // Determine which steps are active/done
       let acc = 0;
       const newSteps = steps.map((s, i) => {
         const stepEnd = acc + stepTimes[i] / totalTime * 100;
@@ -188,14 +183,13 @@ export default function FixPage() {
         setShowOverlay(false);
         setIsRepairing(false);
         setRepairDone(true);
-        // Calculate result
         const v = videoRef.current;
         const vw = v?.videoWidth || 1920;
         const vh = v?.videoHeight || 1080;
-        const resMap: Record<string, string> = { original: `${vw}×${vh}`, '1080p': '1920×1080', '2K': '2560×1440', '4K': '3840×2160' };
+        const resMap: Record<string, string> = { original: `${vw}x${vh}`, '1080p': '1920x1080', '2K': '2560x1440', '4K': '3840x2160' };
         const frames = v?.duration ? Math.round(v.duration * 25) : 1800;
         const elas = ((Date.now() - st) / 1000).toFixed(1);
-        setResultData({ res: resMap[outputRes] || '3840×2160', frames, time: `${elas}s`, quality: '+284%' });
+        setResultData({ res: resMap[outputRes] || '3840x2160', frames, time: `${elas}s`, quality: '+284%' });
         setHistory(h => [{ name: file?.name || 'clip.mp4', res: resMap[outputRes] || '4K', time: new Date().toLocaleTimeString() }, ...h].slice(0, 5));
         drawCompareCanvases();
         return;
@@ -215,8 +209,9 @@ export default function FixPage() {
     const bCtx = bc.getContext('2d')!;
     const aCtx = ac.getContext('2d')!;
 
+    // Draw pixelated "before"
     const BLOCK = 18;
-    const colors = ['#3b2f8a','#2d3f7c','#4a5568','#6b46c1','#553c9a','#2b4282','#5a4799','#7c5cbf'];
+    const colors = ['#3b2f8a', '#2d3f7c', '#4a5568', '#6b46c1', '#553c9a', '#2b4282', '#5a4799', '#7c5cbf'];
     for (let y = 0; y < H; y += BLOCK) {
       for (let x = 0; x < W; x += BLOCK) {
         bCtx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
@@ -227,15 +222,16 @@ export default function FixPage() {
     for (let y = 0; y < H; y += BLOCK) bCtx.fillRect(0, y, W, 1.5);
     for (let x = 0; x < W; x += BLOCK) bCtx.fillRect(x, 0, 1.5, H);
 
+    // Draw smooth "after"
     const grad = aCtx.createLinearGradient(0, 0, W, H);
     grad.addColorStop(0, '#1e1248'); grad.addColorStop(0.5, '#6b46c1'); grad.addColorStop(1, '#00a882');
     aCtx.fillStyle = grad; aCtx.fillRect(0, 0, W, H);
     aCtx.strokeStyle = 'rgba(255,255,255,0.12)'; aCtx.lineWidth = 1.5;
-    for (let i = 1; i < 8; i++) { aCtx.beginPath(); aCtx.arc(W/2, H/2, i*50, 0, Math.PI*2); aCtx.stroke(); }
-    aCtx.fillStyle = 'rgba(255,255,255,0.4)'; aCtx.beginPath(); aCtx.arc(W*0.3, H*0.35, 55, 0, Math.PI*2); aCtx.fill();
-    aCtx.fillStyle = 'rgba(0,212,161,0.7)'; aCtx.beginPath(); aCtx.arc(W*0.65, H*0.6, 40, 0, Math.PI*2); aCtx.fill();
+    for (let i = 1; i < 8; i++) { aCtx.beginPath(); aCtx.arc(W / 2, H / 2, i * 50, 0, Math.PI * 2); aCtx.stroke(); }
+    aCtx.fillStyle = 'rgba(255,255,255,0.4)'; aCtx.beginPath(); aCtx.arc(W * 0.3, H * 0.35, 55, 0, Math.PI * 2); aCtx.fill();
+    aCtx.fillStyle = 'rgba(0,212,161,0.7)'; aCtx.beginPath(); aCtx.arc(W * 0.65, H * 0.6, 40, 0, Math.PI * 2); aCtx.fill();
     aCtx.fillStyle = 'rgba(255,255,255,0.95)'; aCtx.font = 'bold 22px Segoe UI, sans-serif'; aCtx.textAlign = 'center';
-    aCtx.fillText('✨ AI Repaired — Crystal Clear', W/2, H-24);
+    aCtx.fillText('AI Repaired — Crystal Clear', W / 2, H - 24);
   };
 
   // Compare slider
@@ -289,7 +285,7 @@ export default function FixPage() {
       if (pct >= 100) {
         pct = 100; clearInterval(iv);
         setDlProgress(100);
-        setDlStatus('✅ Download ready! Your video has been prepared. (Demo mode)');
+        setDlStatus('Download ready. Your video has been prepared. (Demo mode)');
       } else {
         setDlProgress(pct);
         setDlStatus(`Exporting... ${Math.floor(pct)}%`);
@@ -332,14 +328,13 @@ export default function FixPage() {
             {/* Upload Card */}
             <div className="card">
               <div className="card-header">
-                <h2>📤 Upload Your Video</h2>
+                <h2>Upload Your Video</h2>
                 <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                  {uploadDone ? '✓ Uploaded' : 'Waiting for file'}
+                  {uploadDone ? 'Uploaded' : 'Waiting for file'}
                 </span>
               </div>
               <div className="card-body">
                 <div className="alert alert-info">
-                  <span aria-hidden="true" style={{ fontSize: '1.1rem', flexShrink: 0 }}>ℹ️</span>
                   <span>Upload and preview are <strong>completely free</strong>. No account required. Exporting uses credits.</span>
                 </div>
 
@@ -349,7 +344,7 @@ export default function FixPage() {
                     <div className="prog-label">
                       <span>
                         <span className={`status-dot ${uploadProgress >= 100 ? 'dot-done' : 'dot-active'}`} />
-                        {uploadProgress >= 100 ? 'Upload complete' : 'Uploading video…'}
+                        {uploadProgress >= 100 ? 'Upload complete' : 'Uploading video...'}
                       </span>
                       <span>{uploadProgress}%</span>
                     </div>
@@ -370,10 +365,12 @@ export default function FixPage() {
                     onClick={() => fileInputRef.current?.click()}
                     onKeyDown={(e) => { if (e.key === 'Enter') fileInputRef.current?.click(); }}
                   >
-                    <span style={{ fontSize: '3.5rem', display: 'block', marginBottom: 16 }} aria-hidden="true">🎬</span>
+                    <svg width="56" height="56" fill="none" viewBox="0 0 24 24" stroke="var(--primary)" strokeWidth="1.5" aria-hidden="true" style={{ marginBottom: 16 }}>
+                      <path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M16 12l-4-4m0 0l-4 4m4-4v12" />
+                    </svg>
                     <h2 style={{ marginBottom: 8 }}>Drop Your Pixelated Video Here</h2>
                     <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', marginBottom: 20 }}>
-                      Drag & drop, paste (Ctrl+V), or click to browse
+                      Drag and drop, paste (Ctrl+V), or click to browse
                     </p>
                     <button className="btn btn-primary" type="button" onClick={(e) => { e.stopPropagation(); fileInputRef.current?.click(); }}>
                       <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M16 12l-4-4m0 0l-4 4m4-4v12" /></svg>
@@ -384,7 +381,7 @@ export default function FixPage() {
                       <span className="chip">MKV</span><span className="chip">WebM</span><span className="chip">WMV</span>
                     </div>
                     <p style={{ fontSize: '0.78rem', marginTop: 12, color: 'var(--text-muted)' }}>
-                      Max file size: 2 GB · All formats, no pre-conversion needed
+                      Max file size: 2 GB. All formats supported, no pre-conversion needed.
                     </p>
                   </div>
                 )}
@@ -403,7 +400,7 @@ export default function FixPage() {
             {uploadDone && fileUrl && (
               <div className="card" style={{ marginTop: 24 }}>
                 <div className="vtabs" role="tablist">
-                  {(['original','info','progress'] as const).map(tab => (
+                  {(['original', 'info', 'progress'] as const).map(tab => (
                     <button
                       key={tab}
                       className={`vtab${activeTab === tab ? ' active' : ''}`}
@@ -429,15 +426,23 @@ export default function FixPage() {
                       <source src={fileUrl} />
                     </video>
                     <div className="video-controls">
-                      <button className="vc-btn" onClick={togglePlay} aria-label="Play/Pause">
-                        {isPlaying ? '⏸' : '▶'}
+                      <button className="vc-btn" onClick={togglePlay} aria-label="Play or Pause">
+                        {isPlaying ? (
+                          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" /></svg>
+                        ) : (
+                          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+                        )}
                       </button>
                       <div className="vc-progress" onClick={seekVideo} role="progressbar">
-                        <div className="vc-progress-fill" style={{ width: duration ? `${(currentTime/duration*100)}%` : '0%' }} />
+                        <div className="vc-progress-fill" style={{ width: duration ? `${(currentTime / duration * 100)}%` : '0%' }} />
                       </div>
                       <span className="vc-time">{formatTime(currentTime)} / {formatTime(duration)}</span>
-                      <button className="vc-btn" onClick={toggleMute} aria-label="Mute" style={{ width: 'auto', borderRadius: 6, padding: '0 8px', fontSize: '0.8rem' }}>
-                        {muted ? '🔇' : '🔊'}
+                      <button className="vc-btn" onClick={toggleMute} aria-label="Mute or Unmute" style={{ width: 'auto', borderRadius: 6, padding: '0 8px', fontSize: '0.8rem' }}>
+                        {muted ? (
+                          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM3 9v6h4l5 5V4L7 9H3z" /><path d="M19 12c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71z" /></svg>
+                        ) : (
+                          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3z" /><path d="M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" /><path d="M14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02s-1.02-3.29-2.5-4.03z" /></svg>
+                        )}
                       </button>
                     </div>
                   </div>
@@ -459,7 +464,7 @@ export default function FixPage() {
                       ['Duration', fileInfo.duration],
                       ['Resolution', fileInfo.resolution],
                       ['Aspect Ratio', fileInfo.aspect],
-                      ['Frame Rate (est.)', '24–30 fps'],
+                      ['Frame Rate (est.)', '24-30 fps'],
                       ['Last Modified', fileInfo.modified],
                     ].map(([label, value]) => (
                       <div className="info-item" key={label}>
@@ -485,14 +490,16 @@ export default function FixPage() {
                       <div className="prog-fill prog-process" style={{ width: `${overallPct}%`, height: '100%', background: 'linear-gradient(90deg, var(--primary), var(--accent))' }} />
                     </div>
                     <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: 6 }}>
-                      {repairDone ? '✅ All steps completed successfully!' : isRepairing ? 'AI repair in progress — please wait…' : 'Waiting to start…'}
+                      {repairDone ? 'All steps completed successfully.' : isRepairing ? 'AI repair in progress — please wait.' : 'Waiting to start...'}
                     </p>
                   </div>
                   <ul className="process-steps">
                     {steps.map(s => (
                       <li className="ps-item" key={s.id}>
                         <div className={`ps-num step-${s.cls}`}>
-                          {s.cls === 'done' ? '✓' : s.id}
+                          {s.cls === 'done' ? (
+                            <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3" aria-hidden="true"><path d="M5 13l4 4L19 7" /></svg>
+                          ) : s.id}
                         </div>
                         <div className="step-content">
                           <h3>{s.label}</h3>
@@ -511,15 +518,14 @@ export default function FixPage() {
             {repairDone && (
               <div className="card" style={{ marginTop: 24 }}>
                 <div className="card-header">
-                  <h2>✨ Repair Complete — Compare & Download</h2>
+                  <h2>Repair Complete — Compare and Download</h2>
                   <span style={{ fontSize: '0.82rem', background: '#dcfce7', color: 'var(--success)', padding: '4px 12px', borderRadius: '100px', fontWeight: 700 }}>
-                    ✓ Done
+                    Done
                   </span>
                 </div>
                 <div className="card-body">
                   <div className="alert alert-success">
-                    <span aria-hidden="true" style={{ fontSize: '1.1rem', flexShrink: 0 }}>✅</span>
-                    <span>Your video has been fully repaired. Use the slider to compare before/after.</span>
+                    <span>Your video has been fully repaired. Use the slider to compare before and after.</span>
                   </div>
 
                   {/* Compare slider */}
@@ -530,7 +536,9 @@ export default function FixPage() {
                         <canvas id="result-canvas-after" ref={afterCanvasRef} style={{ width: '200%', aspectRatio: '16/9', display: 'block' }} />
                       </div>
                       <div className="compare-divider-line" />
-                      <div className="compare-handle" role="slider" aria-label="Comparison slider">⟺</div>
+                      <div className="compare-handle" role="slider" aria-label="Comparison slider">
+                        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5" /></svg>
+                      </div>
                       <span className="compare-label-b">BEFORE</span>
                       <span className="compare-label-a">AFTER</span>
                     </div>
@@ -538,19 +546,15 @@ export default function FixPage() {
 
                   <div className="result-meta">
                     <div className="result-badge">
-                      <span className="rb-icon">📐</span>
                       <div><div className="rb-label">Output Resolution</div><div className="rb-value">{resultData.res}</div></div>
                     </div>
                     <div className="result-badge">
-                      <span className="rb-icon">🚀</span>
                       <div><div className="rb-label">Quality Improvement</div><div className="rb-value">{resultData.quality}</div></div>
                     </div>
                     <div className="result-badge">
-                      <span className="rb-icon">🎞️</span>
                       <div><div className="rb-label">Frames Repaired</div><div className="rb-value">{resultData.frames.toLocaleString()} frames</div></div>
                     </div>
                     <div className="result-badge">
-                      <span className="rb-icon">⏱️</span>
                       <div><div className="rb-label">Processing Time</div><div className="rb-value">{resultData.time}</div></div>
                     </div>
                   </div>
@@ -593,7 +597,7 @@ export default function FixPage() {
             {/* Settings */}
             <div className="card">
               <div className="card-header">
-                <h2>⚙️ Repair Settings</h2>
+                <h2>Repair Settings</h2>
               </div>
               <div className="card-body">
                 <div className="settings-grid">
@@ -651,7 +655,7 @@ export default function FixPage() {
                   <div className="setting-row">
                     <div>
                       <div className="setting-label">Artifact Removal</div>
-                      <div className="setting-desc">Remove ringing & halos</div>
+                      <div className="setting-desc">Remove ringing and halos</div>
                     </div>
                     <label className="toggle" aria-label="Artifact removal">
                       <input type="checkbox" checked={artifactRm} onChange={e => setArtifactRm(e.target.checked)} />
@@ -672,17 +676,17 @@ export default function FixPage() {
                   onClick={startRepair}
                 >
                   <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><path d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                  {isRepairing ? '⏳ Processing…' : 'Start AI Repair'}
+                  {isRepairing ? 'Processing...' : 'Start AI Repair'}
                 </button>
                 <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: 10, lineHeight: 1.5 }}>
                   {!uploadDone ? 'Upload a video first, then click to begin.' : 'Ready — click Start to begin AI repair.'}
                 </p>
                 <div style={{ marginTop: 14, paddingTop: 14, borderTop: '1px solid var(--border)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, justifyContent: 'center', marginBottom: 6 }}>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>🔒 Encrypted & auto-deleted after processing</span>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Encrypted and auto-deleted after processing</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, justifyContent: 'center' }}>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>💧 All exports are watermark-free</span>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>All exports are watermark-free</span>
                   </div>
                 </div>
               </div>
@@ -691,7 +695,7 @@ export default function FixPage() {
             {/* History */}
             <div className="card">
               <div className="card-header">
-                <h2>📂 Recent Repairs</h2>
+                <h2>Recent Repairs</h2>
                 <button className="btn btn-ghost btn-sm" onClick={() => setHistory([])}>Clear</button>
               </div>
               <div className="card-body" style={{ paddingTop: 8, paddingBottom: 8 }}>
@@ -702,10 +706,12 @@ export default function FixPage() {
                 ) : (
                   history.map((h, i) => (
                     <div className="history-item" key={i}>
-                      <div className="h-thumb">🎞️</div>
+                      <div className="h-thumb">
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+                      </div>
                       <div className="h-info">
                         <div className="h-name" title={h.name}>{h.name}</div>
-                        <div className="h-meta">{h.res} · {h.time}</div>
+                        <div className="h-meta">{h.res} at {h.time}</div>
                       </div>
                       <span className="h-status hs-done">Done</span>
                     </div>
