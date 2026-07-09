@@ -71,6 +71,90 @@ const features = [
   },
 ];
 
+const products = [
+  {
+    type: 'Desktop Software',
+    title: 'PixelFix Desktop for Windows and Mac',
+    desc: 'Run repairs on your own machine for unlimited batch jobs and maximum privacy. Ideal for archives, editors, and studios processing large volumes of degraded footage.',
+    tags: ['Windows 11', 'macOS 12+', 'Batch 50+ videos', 'GPU acceleration'],
+    cta: 'Download for Desktop',
+  },
+  {
+    type: 'Shopify Plugin',
+    title: 'PixelFix for Shopify Stores',
+    desc: 'Automatically enhance every product video the moment it is uploaded. Sharper listings lead to higher trust and better conversion — no manual editing required.',
+    tags: ['1-click install', 'Auto-enhance on upload', 'Boosts conversion', 'No code needed'],
+    cta: 'Add the Shopify Plugin',
+  },
+];
+
+const compareTools = [
+  {
+    name: 'Topaz Video AI',
+    strengths: 'Highest-quality AI upscaling and professional-grade restoration models.',
+    bestFor: 'Filmmakers and studios doing heavy, frame-by-frame restoration.',
+    pricing: '$299 one-time (or annual license)',
+  },
+  {
+    name: 'Adobe Premiere Pro',
+    strengths: 'Full professional editing suite with basic noise and blur filters.',
+    bestFor: 'Editors who need a complete timeline and are not fixing pixelation alone.',
+    pricing: '$22.99 / month subscription',
+  },
+  {
+    name: 'Vmake.ai',
+    strengths: 'Online AI video enhancer with quick quality boosts.',
+    bestFor: 'Creators wanting fast, browser-based touch-ups.',
+    pricing: 'From $9.99 / month subscription',
+  },
+  {
+    name: 'Remini',
+    strengths: 'Mobile-first photo and short-video enhancer.',
+    bestFor: 'Casual users improving clips on a phone.',
+    pricing: 'Freemium, ~$6 / month subscription',
+  },
+  {
+    name: 'CapCut',
+    strengths: 'Free editor with basic enhancement and upscale tools.',
+    bestFor: 'Social creators making short-form content.',
+    pricing: 'Free, Pro at $7.99 / month',
+  },
+  {
+    name: 'PixelFix',
+    strengths: 'Built specifically to unpixelate video — most repair parameters and methods, best result on blocky footage.',
+    bestFor: 'Anyone who needs pixelated or blocky video repaired and upscaled.',
+    pricing: 'Free to start, low-cost one-time plans',
+    highlight: true,
+  },
+];
+
+const whyUs = [
+  {
+    title: 'Built Only to Fix Pixelated Video',
+    desc: 'General editors treat pixelation as one filter among many. PixelFix is purpose-built for it, so every model and control targets blocky, compressed footage.',
+  },
+  {
+    title: 'More Unpixelate Parameters and Methods',
+    desc: 'Fine-tune deblocking strength, pixelation-type detection, denoise, sharpening, and upscale factor — far more control than a single one-click slider.',
+  },
+  {
+    title: 'Better Results on Severe Artifacts',
+    desc: 'Our models are trained specifically on pixelation and compression damage, recovering edges and detail that generic enhancers smooth away.',
+  },
+  {
+    title: 'Lower Price, No Heavy Subscription',
+    desc: 'Start free and only pay when you export. No $20+ per month commitment just to repair an occasional clip.',
+  },
+  {
+    title: 'One-Time Payment Option',
+    desc: 'Own the desktop software outright. Pay once, use forever — no recurring fees, no surprise renewals.',
+  },
+  {
+    title: 'Works Everywhere You Do',
+    desc: 'Browser, desktop app, and Shopify plugin — repair a single clip online or automate enhancement across an entire store.',
+  },
+];
+
 const whyItems = [
   {
     title: 'Per-Frame Damage Analysis',
@@ -388,6 +472,106 @@ export default function HomePage() {
               <article className="feature-card" key={i} role="listitem">
                 <h3>{f.title}</h3>
                 <p>{f.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== PRODUCTS ===== */}
+      <section id="products" className="section" aria-labelledby="products-heading">
+        <div className="container">
+          <div className="text-center">
+            <span className="badge">Our Products</span>
+            <h2 id="products-heading">PixelFix, Wherever You Work</h2>
+            <p style={{ maxWidth: 600, margin: '12px auto 0' }}>
+              One repair engine, delivered three ways. Use the free browser tool, the
+              self-hosted desktop app, or the automated Shopify plugin.
+            </p>
+          </div>
+          <div className="products-grid" role="list">
+            {products.map((p, i) => (
+              <article className="product-card" key={i} role="listitem">
+                <span className="product-icon" aria-hidden="true">
+                  {i === 0 ? (
+                    <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                      <rect x="3" y="4" width="18" height="12" rx="2" />
+                      <path d="M8 20h8M12 16v4" />
+                    </svg>
+                  ) : (
+                    <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                      <path d="M4 7l8-4 8 4v6c0 4-3 7-8 9-5-2-8-5-8-9V7z" />
+                      <path d="M9 12l2 2 4-4" />
+                    </svg>
+                  )}
+                </span>
+                <div className="product-body">
+                  <span className="usecase-tag">{p.type}</span>
+                  <h3>{p.title}</h3>
+                  <p>{p.desc}</p>
+                  <div className="product-tags">
+                    {p.tags.map((t, j) => (
+                      <span className="product-tag" key={j}>{t}</span>
+                    ))}
+                  </div>
+                  <Link href="/fix" className="btn btn-outline btn-sm" style={{ marginTop: 4 }}>
+                    {p.cta}
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== COMPARE TOOLS ===== */}
+      <section id="compare" className="section section-alt" aria-labelledby="compare-heading">
+        <div className="container">
+          <div className="text-center">
+            <span className="badge">Buyer Guide</span>
+            <h2 id="compare-heading">How to Choose Among Various Video Tools</h2>
+            <p style={{ maxWidth: 640, margin: '12px auto 0' }}>
+              Not every video tool fixes pixelation well. Here is how PixelFix compares
+              with the most common options, and why it is the right pick for blocky footage.
+            </p>
+          </div>
+
+          <div className="compare-scroll">
+            <table className="compare-table">
+              <thead>
+                <tr>
+                  <th scope="col">Tool</th>
+                  <th scope="col">Strengths</th>
+                  <th scope="col">Best For</th>
+                  <th scope="col">Pricing</th>
+                </tr>
+              </thead>
+              <tbody>
+                {compareTools.map((t, i) => (
+                  <tr key={i} className={t.highlight ? 'compare-row-us' : ''}>
+                    <td className={t.highlight ? 'tool-us' : 'tool-name'}>{t.name}</td>
+                    <td>{t.strengths}</td>
+                    <td>{t.bestFor}</td>
+                    <td>{t.pricing}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <h3 className="compare-reasons-title">Why Choose PixelFix for Pixelated Video</h3>
+          <div className="reasons-grid" role="list">
+            {whyUs.map((r, i) => (
+              <article className="reason-card" key={i} role="listitem">
+                <span className="reason-icon" aria-hidden="true">
+                  <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </span>
+                <div>
+                  <h3>{r.title}</h3>
+                  <p>{r.desc}</p>
+                </div>
               </article>
             ))}
           </div>

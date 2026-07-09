@@ -8,6 +8,8 @@ export default function Header() {
 
   const links = [
     { href: '/fix', label: 'Fix Video' },
+    { href: '/#products', label: 'Products' },
+    { href: '/#compare', label: 'Compare Tools' },
     { href: '/help', label: 'Help' },
   ];
 

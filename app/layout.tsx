@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     'video repair tool',
     'AI video repair',
     'video enhancement online',
+    'video repair software',
+    'Shopify video enhancer',
   ],
   metadataBase: new URL('https://pixelfix.ai'),
   alternates: { canonical: 'https://pixelfix.ai' },

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375" width="600" height="375" role="img" aria-label="Old home video recording frame">
+  <defs>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e7d3ab"/>
+      <stop offset="1" stop-color="#c9ad7e"/>
+    </linearGradient>
+    <linearGradient id="win" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bfe2f2"/>
+      <stop offset="1" stop-color="#8fc3e0"/>
+    </linearGradient>
+    <linearGradient id="couch" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9c5b3c"/>
+      <stop offset="1" stop-color="#7c4630"/>
+    </linearGradient>
+  </defs>
+
+  <!-- room -->
+  <rect width="600" height="375" fill="url(#room)"/>
+  <!-- floor -->
+  <rect y="285" width="600" height="90" fill="#a98a5f"/>
+  <rect y="283" width="600" height="4" fill="#8f7048"/>
+
+  <!-- window with light -->
+  <rect x="40" y="60" width="150" height="120" rx="4" fill="url(#win)"/>
+  <g stroke="#ffffff" stroke-width="4">
+    <line x1="115" y1="60" x2="115" y2="180"/>
+    <line x1="40" y1="120" x2="190" y2="120"/>
+  </g>
+  <rect x="36" y="56" width="158" height="128" rx="6" fill="none" stroke="#6e4f33" stroke-width="5"/>
+
+  <!-- framed photo on wall -->
+  <rect x="430" y="58" width="120" height="95" rx="4" fill="#f3ead4" stroke="#6e4f33" stroke-width="5"/>
+  <circle cx="465" cy="100" r="14" fill="#caa46f"/>
+  <path d="M440 145 q25 -30 50 0 z" fill="#caa46f"/>
+
+  <!-- couch -->
+  <rect x="170" y="250" width="320" height="60" rx="14" fill="url(#couch)"/>
+  <rect x="160" y="225" width="40" height="85" rx="12" fill="#8a4f35"/>
+  <rect x="460" y="225" width="40" height="85" rx="12" fill="#8a4f35"/>
+
+  <!-- family silhouettes -->
+  <g>
+    <!-- dad -->
+    <g fill="#5b3b27">
+      <circle cx="250" cy="205" r="20"/>
+      <rect x="230" y="225" width="40" height="60" rx="16"/>
+    </g>
+    <!-- mom -->
+    <g fill="#7a4a32">
+      <circle cx="330" cy="210" r="19"/>
+      <rect x="311" y="230" width="38" height="58" rx="16"/>
+    </g>
+    <!-- child -->
+    <g fill="#8a5a3c">
+      <circle cx="385" cy="245" r="13"/>
+      <rect x="372" y="258" width="26" height="40" rx="12"/>
+    </g>
+  </g>
+
+  <!-- VHS scanlines -->
+  <g stroke="#000000" stroke-width="1" opacity="0.05">
+    <line x1="0" y1="20" x2="600" y2="20"/>
+    <line x1="0" y1="50" x2="600" y2="50"/>
+    <line x1="0" y1="80" x2="600" y2="80"/>
+    <line x1="0" y1="110" x2="600" y2="110"/>
+    <line x1="0" y1="140" x2="600" y2="140"/>
+    <line x1="0" y1="170" x2="600" y2="170"/>
+    <line x1="0" y1="200" x2="600" y2="200"/>
+    <line x1="0" y1="230" x2="600" y2="230"/>
+    <line x1="0" y1="260" x2="600" y2="260"/>
+    <line x1="0" y1="290" x2="600" y2="290"/>
+    <line x1="0" y1="320" x2="600" y2="320"/>
+    <line x1="0" y1="350" x2="600" y2="350"/>
+  </g>
+  <!-- soft vignette -->
+  <rect width="600" height="375" fill="#3a2a14" opacity="0.12"/>
+
+  <!-- camcorder overlays -->
+  <g opacity="0.85">
+    <path d="M30 30 l16 0 -6 12 -10 0 z" fill="#ffffff"/>
+    <text x="52" y="40" font-family="monospace" font-size="13" font-weight="700" fill="#ffffff">PLAY</text>
+  </g>
+  <text x="560" y="350" font-family="monospace" font-size="13" font-weight="700" fill="#ffffff" opacity="0.85" text-anchor="end">DEC 24 1998</text>
+</svg>
