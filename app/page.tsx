@@ -684,6 +684,10 @@ export default function HomePage() {
             <Link href="/fix" className="btn btn-white btn-xl">
               Repair Your Video for Free
             </Link>
+            <p className="cta-sub">
+              Prefer a written walkthrough?{' '}
+              <Link href="/blog">Read our complete guide to fixing pixelated video &rarr;</Link>
+            </p>
           </div>
         </div>
       </section>

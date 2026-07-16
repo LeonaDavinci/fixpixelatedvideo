@@ -20,5 +20,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    {
+      url: 'https://pixelfix.ai/blog',
+      lastModified: new Date('2026-07-16T17:14:00+08:00'),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
   ];
 }
