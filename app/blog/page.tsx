@@ -251,6 +251,27 @@ export default function BlogPage() {
             <FaqAccordion items={blogFaq} />
           </section>
 
+          <section aria-labelledby="related" className="blog-related">
+            <h2 id="related">Related Guides</h2>
+            <div className="blog-related-grid">
+              <Link href="/blog/fix-pixelated-video-iphone" className="blog-related-card">
+                <h3>How to Fix Pixelated Video on iPhone</h3>
+                <p>Clean up clips from Messages, AirDrop, and low-light recording.</p>
+                <span className="blog-related-link">Read guide &rarr;</span>
+              </Link>
+              <Link href="/blog/fix-pixelated-video-youtube" className="blog-related-card">
+                <h3>Fix Pixelated Video After YouTube Upload</h3>
+                <p>Why uploads look blocky and how to re-render a clean master.</p>
+                <span className="blog-related-link">Read guide &rarr;</span>
+              </Link>
+              <Link href="/blog/depixelate-video" className="blog-related-card">
+                <h3>How to Depixelate a Video</h3>
+                <p>Remove block artifacts and restore detail step by step.</p>
+                <span className="blog-related-link">Read guide &rarr;</span>
+              </Link>
+            </div>
+          </section>
+
           <div className="blog-final">
             <h2>Ready to Repair Your Footage?</h2>
             <p>

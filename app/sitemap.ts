@@ -22,9 +22,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: 'https://pixelfix.ai/blog',
-      lastModified: new Date('2026-07-16T17:14:00+08:00'),
+      lastModified: new Date('2026-07-16T18:52:00+08:00'),
       changeFrequency: 'weekly',
       priority: 0.8,
+    },
+    {
+      url: 'https://pixelfix.ai/blog/fix-pixelated-video-iphone',
+      lastModified: new Date('2026-07-27T19:55:00+08:00'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: 'https://pixelfix.ai/blog/fix-pixelated-video-youtube',
+      lastModified: new Date('2026-07-27T19:55:00+08:00'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: 'https://pixelfix.ai/blog/depixelate-video',
+      lastModified: new Date('2026-07-27T19:55:00+08:00'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
   ];
 }
