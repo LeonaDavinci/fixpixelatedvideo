@@ -685,7 +685,9 @@ export default function HomePage() {
               Repair Your Video for Free
             </Link>
             <p className="cta-sub">
-              Prefer a written walkthrough?{' '}
+              Looking for a focused tool page?{' '}
+              <Link href="/depixelate-video">Depixelate video online &rarr;</Link>
+              {' '}·{' '}
               <Link href="/blog">Read our complete guide to fixing pixelated video &rarr;</Link>
             </p>
           </div>

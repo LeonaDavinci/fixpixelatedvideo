@@ -51,6 +51,11 @@ const faq = [
 
 const related = [
   {
+    href: '/depixelate-video',
+    title: 'Depixelate Video Online',
+    desc: 'The focused tool page for removing pixelation from any clip — free, in your browser.',
+  },
+  {
     href: '/blog/fix-pixelated-video-iphone',
     title: 'Fix Pixelated Video on iPhone',
     desc: 'Clean up clips from Messages, AirDrop, and low-light recording.',
