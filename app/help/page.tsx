@@ -4,12 +4,12 @@ export const metadata: Metadata = {
   title: 'Help Center — How to Fix Pixelated Video Guide | PixelFix',
   description:
     'Complete guide on fixing pixelated videos. Learn about supported formats, repair modes, quality settings, troubleshooting tips, and privacy for AI video repair.',
-  alternates: { canonical: 'https://pixelfix.ai/help' },
+  alternates: { canonical: 'https://www.fixpixelatedvideo.com/help' },
   openGraph: {
     title: 'Help Center — How to Fix Pixelated Video Guide',
     description:
       'Comprehensive guide on fixing pixelated videos with PixelFix. Supported formats, repair modes, quality settings, troubleshooting, and privacy.',
-    url: 'https://pixelfix.ai/help',
+    url: 'https://www.fixpixelatedvideo.com/help',
   },
 };
 

@@ -37,7 +37,7 @@ export default function ArticlePage({
   related,
   children,
 }: ArticlePageProps) {
-  const url = `https://pixelfix.ai/blog/${slug}`;
+  const url = `https://www.fixpixelatedvideo.com/blog/${slug}`;
   return (
     <>
       {/* SEO Structured Data: Article */}
@@ -55,7 +55,7 @@ export default function ArticlePage({
             publisher: {
               '@type': 'Organization',
               name: 'PixelFix',
-              logo: { '@type': 'ImageObject', url: 'https://pixelfix.ai/favicon.svg' },
+              logo: { '@type': 'ImageObject', url: 'https://www.fixpixelatedvideo.com/favicon.svg' },
             },
             mainEntityOfPage: { '@type': 'WebPage', '@id': url },
           }),

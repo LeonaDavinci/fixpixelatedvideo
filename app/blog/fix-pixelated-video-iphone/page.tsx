@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'How to Fix Pixelated Video on iPhone (2026)',
   description:
     'A practical guide on how to fix pixelated video on iPhone. Learn why iPhone clips get blocky, whether they can be repaired, and the settings that clean up footage from Messages, AirDrop, and low-light recording.',
-  alternates: { canonical: 'https://pixelfix.ai/blog/fix-pixelated-video-iphone' },
+  alternates: { canonical: 'https://www.fixpixelatedvideo.com/blog/fix-pixelated-video-iphone' },
   openGraph: {
     title: 'How to Fix Pixelated Video on iPhone (2026)',
     description:
       'Why iPhone videos get pixelated, whether they can be repaired, and the repair settings that work best for mobile footage.',
-    url: 'https://pixelfix.ai/blog/fix-pixelated-video-iphone',
+    url: 'https://www.fixpixelatedvideo.com/blog/fix-pixelated-video-iphone',
     type: 'article',
     publishedTime: '2026-07-27T19:55:00+08:00',
     modifiedTime: '2026-07-27T19:55:00+08:00',

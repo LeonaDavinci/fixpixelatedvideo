@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: 'How to Fix Pixelated Video: The Complete Guide (2026)',
   description:
     'A practical, up-to-date guide on how to fix pixelated video. Learn what causes pixelation, whether it can be repaired, the best settings for different footage, and how PixelFix compares to other tools.',
-  alternates: { canonical: 'https://pixelfix.ai/blog' },
+  alternates: { canonical: 'https://www.fixpixelatedvideo.com/blog' },
   openGraph: {
     title: 'How to Fix Pixelated Video: The Complete Guide (2026)',
     description:
       'What causes pixelation, whether it can be repaired, the best repair settings, and how PixelFix compares to other video tools.',
-    url: 'https://pixelfix.ai/blog',
+    url: 'https://www.fixpixelatedvideo.com/blog',
     type: 'article',
     publishedTime: '2026-07-16T18:52:00+08:00',
     modifiedTime: '2026-07-16T18:52:00+08:00',
@@ -73,9 +73,9 @@ export default function BlogPage() {
             publisher: {
               '@type': 'Organization',
               name: 'PixelFix',
-              logo: { '@type': 'ImageObject', url: 'https://pixelfix.ai/favicon.svg' },
+              logo: { '@type': 'ImageObject', url: 'https://www.fixpixelatedvideo.com/favicon.svg' },
             },
-            mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://pixelfix.ai/blog' },
+            mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.fixpixelatedvideo.com/blog' },
           }),
         }}
       />

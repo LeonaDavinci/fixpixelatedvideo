@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'How to Depixelate a Video: A Step-by-Step Removal Guide',
   description:
     'A clear guide on how to depixelate a video. Learn what depixelation means, why footage gets blocky, and the step-by-step process to remove pixelation and restore detail.',
-  alternates: { canonical: 'https://pixelfix.ai/blog/depixelate-video' },
+  alternates: { canonical: 'https://www.fixpixelatedvideo.com/blog/depixelate-video' },
   openGraph: {
     title: 'How to Depixelate a Video: A Step-by-Step Removal Guide',
     description:
       'What depixelation means, why video gets blocky, and how to remove pixelation and restore detail.',
-    url: 'https://pixelfix.ai/blog/depixelate-video',
+    url: 'https://www.fixpixelatedvideo.com/blog/depixelate-video',
     type: 'article',
     publishedTime: '2026-07-27T19:55:00+08:00',
     modifiedTime: '2026-07-27T19:55:00+08:00',

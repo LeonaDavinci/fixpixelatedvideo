@@ -22,14 +22,14 @@ export const metadata: Metadata = {
     'video repair software',
     'Shopify video enhancer',
   ],
-  metadataBase: new URL('https://pixelfix.ai'),
-  alternates: { canonical: 'https://pixelfix.ai' },
+  metadataBase: new URL('https://www.fixpixelatedvideo.com'),
+  alternates: { canonical: 'https://www.fixpixelatedvideo.com' },
   openGraph: {
     title: 'How to Fix Pixelated Video — Free AI Video Repair Tool',
     description:
       'Repair pixelated, blocky, and damaged videos online. AI reconstructs every frame and restores clarity up to 4K. Free to start, no watermark.',
     type: 'website',
-    url: 'https://pixelfix.ai',
+    url: 'https://www.fixpixelatedvideo.com',
     siteName: 'PixelFix',
     locale: 'en_US',
   },
@@ -82,7 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 ratingValue: '4.8',
                 reviewCount: '2340',
               },
-              url: 'https://pixelfix.ai',
+              url: 'https://www.fixpixelatedvideo.com',
             }),
           }}
         />
@@ -93,8 +93,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: 'PixelFix',
-              url: 'https://pixelfix.ai',
-              logo: 'https://pixelfix.ai/favicon.svg',
+              url: 'https://www.fixpixelatedvideo.com',
+              logo: 'https://www.fixpixelatedvideo.com/favicon.svg',
               description:
                 'AI-powered online tool for fixing pixelated, blocky, and degraded video.',
             }),

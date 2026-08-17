@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://pixelfix.ai/sitemap.xml',
+    sitemap: 'https://www.fixpixelatedvideo.com/sitemap.xml',
   };
 }

@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'How to Fix Pixelated Video After Uploading to YouTube',
   description:
     'Learn how to fix pixelated video after uploading to YouTube. Understand YouTube compression, whether you can re-render an already-uploaded clip, and the export settings that keep footage sharp.',
-  alternates: { canonical: 'https://pixelfix.ai/blog/fix-pixelated-video-youtube' },
+  alternates: { canonical: 'https://www.fixpixelatedvideo.com/blog/fix-pixelated-video-youtube' },
   openGraph: {
     title: 'How to Fix Pixelated Video After Uploading to YouTube',
     description:
       'Why YouTube videos look pixelated, whether an uploaded clip can be re-rendered, and the export settings that keep footage sharp.',
-    url: 'https://pixelfix.ai/blog/fix-pixelated-video-youtube',
+    url: 'https://www.fixpixelatedvideo.com/blog/fix-pixelated-video-youtube',
     type: 'article',
     publishedTime: '2026-07-27T19:55:00+08:00',
     modifiedTime: '2026-07-27T19:55:00+08:00',

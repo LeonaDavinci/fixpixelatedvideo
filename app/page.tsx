@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: 'How to Fix Pixelated Video — Free AI Video Repair Tool',
   description:
     'Learn how to fix pixelated video with AI. Remove blocky compression artifacts, repair blurry footage, and upscale to 4K. Free to start, no software install, no watermark.',
-  alternates: { canonical: 'https://pixelfix.ai' },
+  alternates: { canonical: 'https://www.fixpixelatedvideo.com' },
   openGraph: {
     title: 'How to Fix Pixelated Video — Free AI Video Repair Tool',
     description:
       'Repair pixelated, blocky, and damaged videos online. AI reconstructs every frame and restores clarity up to 4K.',
-    url: 'https://pixelfix.ai',
+    url: 'https://www.fixpixelatedvideo.com',
   },
 };
 
