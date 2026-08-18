@@ -5,11 +5,11 @@ import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: {
-    default: 'How to Fix Pixelated Video — Free AI Video Repair Tool | PixelFix',
+    default: 'Fix Pixelated Video — Free AI Repair Tool',
     template: '%s | PixelFix',
   },
   description:
-    'Fix pixelated video online with AI. Remove compression artifacts, repair blocky footage, and upscale to 4K — free to start, no software install, no watermark.',
+    'Fix pixelated video free with AI. Remove blocky compression artifacts and upscale footage to 4K—no install, no watermark.',
   keywords: [
     'how to fix pixelated video',
     'fix pixelated video',
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.fixpixelatedvideo.com'),
   alternates: { canonical: 'https://www.fixpixelatedvideo.com' },
   openGraph: {
-    title: 'How to Fix Pixelated Video — Free AI Video Repair Tool',
+    title: 'Fix Pixelated Video — Free AI Repair Tool',
     description:
-      'Repair pixelated, blocky, and damaged videos online. AI reconstructs every frame and restores clarity up to 4K. Free to start, no watermark.',
+      'Repair pixelated, blocky video with AI. Remove compression artifacts and upscale footage to 4K for free—no watermark.',
     type: 'website',
     url: 'https://www.fixpixelatedvideo.com',
     siteName: 'PixelFix',
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'How to Fix Pixelated Video — Free AI Video Repair Tool',
+    title: 'Fix Pixelated Video — Free AI Repair Tool',
     description:
-      'Repair pixelated, blocky, and damaged videos online. AI reconstructs every frame and restores clarity up to 4K.',
+      'Repair pixelated, blocky video with AI. Remove compression artifacts and upscale footage to 4K for free.',
   },
   robots: {
     index: true,

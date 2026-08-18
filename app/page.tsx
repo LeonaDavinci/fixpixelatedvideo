@@ -4,14 +4,14 @@ import BeforeAfterDemo from '@/components/BeforeAfterDemo';
 import FaqAccordion from '@/components/FaqAccordion';
 
 export const metadata: Metadata = {
-  title: 'How to Fix Pixelated Video — Free AI Video Repair Tool',
+  title: 'Fix Pixelated Video — Free AI Repair Tool',
   description:
-    'Learn how to fix pixelated video with AI. Remove blocky compression artifacts, repair blurry footage, and upscale to 4K. Free to start, no software install, no watermark.',
+    'Fix pixelated video free with AI. Remove blocky compression artifacts and upscale footage to 4K—no install, no watermark.',
   alternates: { canonical: 'https://www.fixpixelatedvideo.com' },
   openGraph: {
-    title: 'How to Fix Pixelated Video — Free AI Video Repair Tool',
+    title: 'Fix Pixelated Video — Free AI Repair Tool',
     description:
-      'Repair pixelated, blocky, and damaged videos online. AI reconstructs every frame and restores clarity up to 4K.',
+      'Repair pixelated, blocky video with AI. Remove compression artifacts and upscale footage to 4K for free—no watermark.',
     url: 'https://www.fixpixelatedvideo.com',
   },
 };
