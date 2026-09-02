@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import ArticlePage from '@/components/ArticlePage';
 
 export const metadata: Metadata = {
-  title: 'How to Fix Pixelated Video on iPhone (2026)',
+  title: 'How to Fix Pixelated Video on iPhone',
   description:
-    'A practical guide on how to fix pixelated video on iPhone. Learn why iPhone clips get blocky, whether they can be repaired, and the settings that clean up footage from Messages, AirDrop, and low-light recording.',
+    'Fix pixelated video on iPhone with AI. Repair blocky footage from any app and upscale to 4K—free, no install.',
   alternates: { canonical: 'https://www.fixpixelatedvideo.com/blog/fix-pixelated-video-iphone' },
   openGraph: {
-    title: 'How to Fix Pixelated Video on iPhone (2026)',
+    title: 'How to Fix Pixelated Video on iPhone',
     description:
       'Why iPhone videos get pixelated, whether they can be repaired, and the repair settings that work best for mobile footage.',
     url: 'https://www.fixpixelatedvideo.com/blog/fix-pixelated-video-iphone',

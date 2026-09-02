@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Help Center — How to Fix Pixelated Video Guide | PixelFix',
+  title: 'Help Center — Fix Pixelated Video Guide',
   description:
-    'Complete guide on fixing pixelated videos. Learn about supported formats, repair modes, quality settings, troubleshooting tips, and privacy for AI video repair.',
+    'Get help fixing pixelated video. Step-by-step guides, FAQ, and AI repair tips for blocky or degraded footage.',
   alternates: { canonical: 'https://www.fixpixelatedvideo.com/help' },
   openGraph: {
     title: 'Help Center — How to Fix Pixelated Video Guide',

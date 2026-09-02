@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import ArticlePage from '@/components/ArticlePage';
 
 export const metadata: Metadata = {
-  title: 'How to Depixelate a Video: A Step-by-Step Removal Guide',
+  title: 'How to Depixelate a Video: Step-by-Step Guide',
   description:
-    'A clear guide on how to depixelate a video. Learn what depixelation means, why footage gets blocky, and the step-by-step process to remove pixelation and restore detail.',
+    'Learn how to depixelate a video with AI. Remove mosaic and blocky artifacts and restore clear, sharp footage.',
   alternates: { canonical: 'https://www.fixpixelatedvideo.com/blog/depixelate-video' },
   openGraph: {
-    title: 'How to Depixelate a Video: A Step-by-Step Removal Guide',
+    title: 'How to Depixelate a Video: Step-by-Step Guide',
     description:
       'What depixelation means, why video gets blocky, and how to remove pixelation and restore detail.',
     url: 'https://www.fixpixelatedvideo.com/blog/depixelate-video',

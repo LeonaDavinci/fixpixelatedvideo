@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Fix Pixelated Video — Upload and Repair Online | PixelFix',
+  title: 'Fix Pixelated Video — Upload & Repair',
   description:
-    'Upload your pixelated or damaged video and let AI repair every frame. Preview the before/after comparison, choose output resolution up to 4K, and download — no watermark.',
+    'Upload pixelated video and let AI repair blocky artifacts, then upscale to 4K. Free, browser-based, no watermark.',
   alternates: { canonical: 'https://www.fixpixelatedvideo.com/fix' },
   openGraph: {
-    title: 'Fix Pixelated Video — Upload and Repair Online',
+    title: 'Fix Pixelated Video — Upload & Repair',
     description:
-      'AI-powered video repair tool. Upload, preview, repair, and download in up to 4K. Free to start, no watermark.',
+      'Upload pixelated video and let AI repair blocky artifacts, then upscale to 4K for free—no watermark.',
     url: 'https://www.fixpixelatedvideo.com/fix',
   },
 };

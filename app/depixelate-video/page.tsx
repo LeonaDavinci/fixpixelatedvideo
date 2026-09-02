@@ -3,9 +3,9 @@ import Link from 'next/link';
 import FaqAccordion from '@/components/FaqAccordion';
 
 export const metadata: Metadata = {
-  title: 'Depixelate Video Online — Fix Blocky, Pixelated Footage Free | PixelFix',
+  title: 'Depixelate Video Online — Fix Blocky Footage',
   description:
-    'Depixelate video online with AI. Remove pixelation, unpixelate blocky footage, and sharpen blurry clips for free — no install, no watermark. Runs in your browser.',
+    'Depixelate video online free with AI. Remove blocky, pixelated artifacts and upscale footage to 4K—no watermark.',
   keywords: [
     'depixelate video',
     'depixelate video online',
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://www.fixpixelatedvideo.com/depixelate-video' },
   openGraph: {
-    title: 'Depixelate Video Online — Fix Blocky, Pixelated Footage Free',
+    title: 'Depixelate Video Online — Fix Blocky Footage',
     description:
-      'Remove pixelation and unpixelate blocky clips with AI. Free, browser-based, no watermark.',
+      'Depixelate video online with AI. Remove blocky, pixelated artifacts and upscale footage to 4K for free.',
     url: 'https://www.fixpixelatedvideo.com/depixelate-video',
     type: 'website',
     siteName: 'PixelFix',
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Depixelate Video Online — Fix Blocky, Pixelated Footage Free',
+    title: 'Depixelate Video Online — Fix Blocky Footage',
     description:
-      'Remove pixelation and unpixelate blocky clips with AI. Free, browser-based, no watermark.',
+      'Depixelate video online with AI. Remove blocky, pixelated artifacts and upscale footage to 4K for free.',
   },
 };
 

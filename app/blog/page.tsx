@@ -3,12 +3,12 @@ import Link from 'next/link';
 import FaqAccordion from '@/components/FaqAccordion';
 
 export const metadata: Metadata = {
-  title: 'How to Fix Pixelated Video: The Complete Guide (2026)',
+  title: 'How to Fix Pixelated Video — The Complete Guide',
   description:
-    'A practical, up-to-date guide on how to fix pixelated video. Learn what causes pixelation, whether it can be repaired, the best settings for different footage, and how PixelFix compares to other tools.',
+    'Learn how to fix pixelated video: what causes it, whether it can be repaired, the best settings, and how PixelFix compares to other tools.',
   alternates: { canonical: 'https://www.fixpixelatedvideo.com/blog' },
   openGraph: {
-    title: 'How to Fix Pixelated Video: The Complete Guide (2026)',
+    title: 'How to Fix Pixelated Video — The Complete Guide',
     description:
       'What causes pixelation, whether it can be repaired, the best repair settings, and how PixelFix compares to other video tools.',
     url: 'https://www.fixpixelatedvideo.com/blog',

@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import ArticlePage from '@/components/ArticlePage';
 
 export const metadata: Metadata = {
-  title: 'How to Fix Pixelated Video After Uploading to YouTube',
+  title: 'Fix Pixelated Video After YouTube Upload',
   description:
-    'Learn how to fix pixelated video after uploading to YouTube. Understand YouTube compression, whether you can re-render an already-uploaded clip, and the export settings that keep footage sharp.',
+    'Fix pixelated video after uploading to YouTube. Repair compression artifacts and restore 4K clarity with AI.',
   alternates: { canonical: 'https://www.fixpixelatedvideo.com/blog/fix-pixelated-video-youtube' },
   openGraph: {
-    title: 'How to Fix Pixelated Video After Uploading to YouTube',
+    title: 'Fix Pixelated Video After YouTube Upload',
     description:
       'Why YouTube videos look pixelated, whether an uploaded clip can be re-rendered, and the export settings that keep footage sharp.',
     url: 'https://www.fixpixelatedvideo.com/blog/fix-pixelated-video-youtube',
