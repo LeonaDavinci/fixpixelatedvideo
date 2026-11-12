@@ -34,12 +34,34 @@ export default function FixPage() {
   const [error, setError] = useState('');
 
   // Repair settings
+  const [damageType, setDamageType] = useState('pixelated');
   const [repairMode, setRepairMode] = useState('balanced');
-  const [outputRes, setOutputRes] = useState('4K');
+  const [outputRes, setOutputRes] = useState('1080p');
   const [denoise, setDenoise] = useState(60);
-  const [sharpen, setSharpen] = useState(45);
+  const [sharpen, setSharpen] = useState(40);
   const [temporal, setTemporal] = useState(true);
   const [artifactRm, setArtifactRm] = useState(true);
+
+  // Damage-type presets — let the user pick the damage instead of running a (fake) analysis pass.
+  // Each preset seeds sensible slider values; the user can still fine-tune afterwards.
+  const damagePresets: Record<string, {
+    label: string;
+    denoise: number; sharpen: number; temporal: boolean; artifactRm: boolean;
+    outputRes: string; blurBase: number; contrast: number; sat: number;
+  }> = {
+    pixelated: { label: 'Pixelated / Compressed (blocky)', denoise: 60, sharpen: 40, temporal: true, artifactRm: true, outputRes: '1080p', blurBase: 0.2, contrast: 0.10, sat: 0.04 },
+    blurry:    { label: 'Blurry / Soft focus',             denoise: 30, sharpen: 65, temporal: false, artifactRm: false, outputRes: 'original', blurBase: 0.0, contrast: 0.06, sat: 0.02 },
+    grain:     { label: 'Film grain / Noise',              denoise: 80, sharpen: 28, temporal: true,  artifactRm: false, outputRes: 'original', blurBase: 0.6, contrast: 0.04, sat: 0.0 },
+    vhs:       { label: 'VHS / Tape / Interlaced',         denoise: 55, sharpen: 35, temporal: true,  artifactRm: true,  outputRes: '1080p', blurBase: 0.35, contrast: 0.12, sat: 0.05 },
+    general:   { label: 'General restore (balanced)',      denoise: 55, sharpen: 45, temporal: true,  artifactRm: true,  outputRes: '1080p', blurBase: 0.3, contrast: 0.08, sat: 0.03 },
+  };
+
+  const applyDamagePreset = (t: string) => {
+    const p = damagePresets[t] || damagePresets.pixelated;
+    setDamageType(t);
+    setDenoise(p.denoise); setSharpen(p.sharpen);
+    setTemporal(p.temporal); setArtifactRm(p.artifactRm); setOutputRes(p.outputRes);
+  };
 
   // Edge-sharpen SVG kernel (driven by the sharpen slider) — applied via ctx.filter url(#px-sharpen)
   const sharpenAmt = (sharpen / 100) * 0.8;
@@ -48,7 +70,7 @@ export default function FixPage() {
   // Processing step state
   const [steps, setSteps] = useState([
     { id: 1, label: 'Video Upload and Validation', badge: 'Waiting', cls: 'waiting' },
-    { id: 2, label: 'Damage Analysis', badge: 'Waiting', cls: 'waiting' },
+    { id: 2, label: 'Damage Profiling', badge: 'Waiting', cls: 'waiting' },
     { id: 3, label: 'Frame Reconstruction', badge: 'Waiting', cls: 'waiting' },
     { id: 4, label: 'Artifact Removal and Sharpening', badge: 'Waiting', cls: 'waiting' },
     { id: 5, label: 'Resolution Upscaling', badge: 'Waiting', cls: 'waiting' },
@@ -181,7 +203,7 @@ export default function FixPage() {
     setDlShow(false);
     setActiveTab('progress');
     setShowOverlay(true);
-    setOverlayMsg('Analyzing damage patterns...');
+    setOverlayMsg('Repairing video frames…');
 
     const vw = v.videoWidth, vh = v.videoHeight, dur = v.duration || 0;
     const targetW: Record<string, number> = { original: vw, '1080p': 1920, '2K': 2560, '4K': 3840 };
@@ -193,10 +215,11 @@ export default function FixPage() {
     setProcessedBlob(null);
     setOverallPct(0);
 
-    // Real per-frame pixel transform (deblock / denoise / sharpen / de-ring via canvas filters)
-    const blurAmt = 0.2 + (denoise / 100) * 1.4 + (artifactRm ? 0.4 : 0) + (temporal ? 0.2 : 0);
-    const contrastAmt = 1 + (sharpen / 100) * 0.22;
-    const satAmt = 1 + (sharpen / 100) * 0.08;
+    // Preset-aware filter — the chosen damage type IS the profile, so no heavy analysis pass is needed.
+    const p = damagePresets[damageType] || damagePresets.pixelated;
+    const blurAmt = p.blurBase + (denoise / 100) * 1.0 + (artifactRm ? 0.2 : 0) + (temporal ? 0.1 : 0);
+    const contrastAmt = 1 + p.contrast + (sharpen / 100) * 0.18;
+    const satAmt = 1 + p.sat + (sharpen / 100) * 0.05;
     let filterStr = `blur(${blurAmt.toFixed(2)}px) contrast(${contrastAmt.toFixed(2)}) saturate(${satAmt.toFixed(2)})`;
     if (sharpen > 12) filterStr = `url(#px-sharpen) ${filterStr}`;
 
@@ -747,6 +770,22 @@ export default function FixPage() {
               <div className="card-body">
                 <div className="settings-grid">
                   <div>
+                    <div className="setting-label" style={{ marginBottom: 4 }}>Video Damage Type</div>
+                    <div className="setting-desc">We apply a tuned preset for this damage</div>
+                    <select
+                      className="select-input"
+                      style={{ marginTop: 8 }}
+                      value={damageType}
+                      onChange={(e) => applyDamagePreset(e.target.value)}
+                      aria-label="Video damage type"
+                    >
+                      {Object.entries(damagePresets).map(([k, v]) => (
+                        <option key={k} value={k}>{v.label}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
                     <div className="setting-label" style={{ marginBottom: 4 }}>AI Repair Mode</div>
                     <div className="setting-desc">Algorithm aggressiveness</div>
                     <select className="select-input" style={{ marginTop: 8 }} value={repairMode} onChange={e => setRepairMode(e.target.value)} aria-label="Repair mode">
@@ -877,7 +916,7 @@ export default function FixPage() {
       <div id="processing-overlay" className={showOverlay ? 'show' : ''} role="status" aria-live="polite">
         <div className="spinner" />
         <div className="overlay-text">{overlayMsg}</div>
-        <div className="overlay-sub">This may take a moment. Do not close the tab.</div>
+        <div className="overlay-sub">Repair runs in your browser at playback speed. Do not close the tab.</div>
       </div>
     </div>
   );
