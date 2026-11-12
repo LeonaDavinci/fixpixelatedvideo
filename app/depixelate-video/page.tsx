@@ -11,6 +11,10 @@ export const metadata: Metadata = {
     'depixelate video online',
     'depixelate a video',
     'unpixelate video',
+    'pixel fixer',
+    'pixel fixer video',
+    'fix pixelated video online free',
+    'video pixelation',
     'remove pixelation from video',
     'fix pixelated video',
     'deblur video',
@@ -60,6 +64,16 @@ const faqItems = [
     question: 'What formats can I depixelate?',
     answer:
       'PixelFix supports MP4, MOV, AVI, MKV, WebM, and WMV with no pre-conversion required. Output is delivered as MP4 (H.264) up to 4K resolution.',
+  },
+  {
+    question: 'Can I depixelate video on a Chromebook?',
+    answer:
+      'Yes. PixelFix is fully browser-based, so you can depixelate video on Chromebook or any ChromeOS device without installing software or extensions. Open Chrome, upload your clip, and let the AI remove pixelation online — no app required.',
+  },
+  {
+    question: 'What is the difference between depixelate and unpixelate?',
+    answer:
+      'They mean the same thing. To unpixelate a video is simply another way to say depixelate a video — both refer to removing blocky compression artifacts and restoring clean, sharp frames.',
   },
 ];
 
@@ -222,6 +236,17 @@ export default function DepixelateVideoPage() {
               </p>
             </article>
           </div>
+        </div>
+      </section>
+
+      {/* ===== CHROMEBOOK ===== */}
+      <section className="section" aria-labelledby="chromebook-heading">
+        <div className="container text-center">
+          <span className="badge">ChromeOS Ready</span>
+          <h2 id="chromebook-heading">Depixelate Video on Chromebook &amp; Any Browser</h2>
+          <p style={{ maxWidth: 640, margin: '12px auto 0' }}>
+            PixelFix runs entirely in your browser, so you can fix pixelated video on Chromebook without installing any software. Open Chrome on your ChromeOS device, upload a clip, and let the AI unpixelate video online free — no app and no extension required. It also works on Windows, Mac, Linux, Android, and iOS.
+          </p>
         </div>
       </section>
 

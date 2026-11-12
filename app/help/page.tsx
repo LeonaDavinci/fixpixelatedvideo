@@ -64,6 +64,14 @@ export default function HelpPage() {
                   text: 'Yes. The entire tool is responsive and works on modern mobile browsers. Upload, repair, and download directly from your phone or tablet.',
                 },
               },
+              {
+                '@type': 'Question',
+                name: 'Does PixelFix work on a Chromebook or ChromeOS?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes. PixelFix is fully browser-based, so it runs on any Chromebook or ChromeOS device with no software or extension to install. Open Chrome, upload your video, and repair it online.',
+                },
+              },
             ],
           }),
         }}
@@ -316,6 +324,13 @@ export default function HelpPage() {
                   Yes. The entire tool is responsive and works on modern mobile
                   browsers. Upload, repair, and download directly from your phone or
                   tablet.
+                </p>
+
+                <h3>Does PixelFix work on a Chromebook or ChromeOS?</h3>
+                <p>
+                  Yes. PixelFix is fully browser-based, so it runs on any Chromebook or
+                  ChromeOS device with nothing to install. Open Chrome, upload your
+                  video, and repair it online.
                 </p>
               </article>
 

@@ -6,8 +6,20 @@ import FaqAccordion from '@/components/FaqAccordion';
 export const metadata: Metadata = {
   title: 'Fix Pixelated Video — Free AI Repair Tool',
   description:
-    'Fix pixelated video free with AI. Remove blocky compression artifacts and upscale footage to 4K—no install, no watermark.',
+    'Fix pixelated video online free with AI. Remove blocky compression artifacts and upscale footage to 4K—no install, no watermark.',
   alternates: { canonical: 'https://www.fixpixelatedvideo.com' },
+  keywords: [
+    'how to fix pixelated video',
+    'fix pixelated video',
+    'repair pixelated video',
+    'unpixelate video',
+    'depixelate video',
+    'pixel fixer',
+    'pixel fixer video',
+    'fix pixelated video online free',
+    'video pixelation',
+    'fix blocky video',
+  ],
   openGraph: {
     title: 'Fix Pixelated Video — Free AI Repair Tool',
     description:
@@ -271,6 +283,21 @@ const faqItems = [
     answer:
       'Yes. Your video is encrypted during upload and automatically deleted after processing. We maintain a strict zero-retention policy and never use uploaded videos for AI training.',
   },
+  {
+    question: 'Can I fix pixelated video online for free?',
+    answer:
+      'Yes. Uploading and previewing your repaired video is completely free with no account required. You can fix pixelated video online free and only use credits when you export the final file — and no watermark is added to any export.',
+  },
+  {
+    question: 'Can I fix pixelated video on a Chromebook?',
+    answer:
+      'Absolutely. PixelFix is fully browser-based, so you can fix pixelated video on Chromebook or any ChromeOS device without installing software or extensions. Just open Chrome, upload your clip, and repair it online — no app needed.',
+  },
+  {
+    question: 'How do I unpixelate a video?',
+    answer:
+      'To unpixelate a video, upload it to PixelFix, pick your damage type and output resolution, then let the AI remove blocky compression artifacts and rebuild clean edges. Preview the before/after result, then download the unpixelated video free of watermarks.',
+  },
 ];
 
 export default function HomePage() {
@@ -454,6 +481,31 @@ export default function HomePage() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== ANY DEVICE / CHROMEBOOK ===== */}
+      <section className="section section-alt" aria-labelledby="any-device-heading">
+        <div className="container text-center">
+          <span className="badge">Works Everywhere</span>
+          <h2 id="any-device-heading">Fix Pixelated Video on Any Device — Including Chromebook</h2>
+          <p style={{ maxWidth: 640, margin: '12px auto 0' }}>
+            PixelFix is a fully browser-based pixel fixer, so you can fix pixelated video online free from any device with a modern browser — Windows, Mac, Linux, Android, iPhone, iPad, and Chromebook. No software install and no ChromeOS app required.
+          </p>
+          <div className="features-grid" role="list">
+            <article className="feature-card" role="listitem">
+              <h3>Fix Pixelated Video on Chromebook</h3>
+              <p>Because everything runs in the browser, you can depixelate video on Chromebook without installing anything. Open Chrome, upload your clip, and repair it — perfect for students and schools on ChromeOS.</p>
+            </article>
+            <article className="feature-card" role="listitem">
+              <h3>No Video Pixelation Left Behind</h3>
+              <p>From severe block artifacts to mild video pixelation, the repair targets your exact damage type and rebuilds clean edges and smooth gradients.</p>
+            </article>
+            <article className="feature-card" role="listitem">
+              <h3>Unpixelate Video Online Free</h3>
+              <p>Preview every repair for free and only use credits on the final export. Watermark-free on every device, including Chromebook.</p>
+            </article>
           </div>
         </div>
       </section>

@@ -4,6 +4,15 @@ export const metadata: Metadata = {
   title: 'Fix Pixelated Video — Upload & Repair',
   description:
     'Upload pixelated video and let AI repair blocky artifacts, then upscale to 4K. Free, browser-based, no watermark.',
+  keywords: [
+    'fix pixelated video',
+    'pixel fixer',
+    'pixel fixer video',
+    'fix pixelated video online free',
+    'unpixelate video',
+    'depixelate video',
+    'video pixelation',
+  ],
   alternates: { canonical: 'https://www.fixpixelatedvideo.com/fix' },
   openGraph: {
     title: 'Fix Pixelated Video — Upload & Repair',
