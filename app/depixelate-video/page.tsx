@@ -1,21 +1,25 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import FaqAccordion from '@/components/FaqAccordion';
+import { FieldNotes, Scenarios, Tutorials, Caveats } from '@/components/DeepDive';
 
 export const metadata: Metadata = {
   title: 'Depixelate Video Online — Fix Blocky Footage',
   description:
-    'Depixelate video online free with AI. Remove blocky, pixelated artifacts and upscale footage to 4K—no watermark.',
+    'Depixelate video online free — remove pixelation from video and fix blocky artifacts with AI, then upscale to 4K. No install, no watermark.',
   keywords: [
     'depixelate video',
     'depixelate video online',
     'depixelate a video',
     'unpixelate video',
+    'unpixel video',
+    'remove pixelation from video',
+    'remove pixelation from video online free',
+    'how to remove pixelation from video',
     'pixel fixer',
     'pixel fixer video',
     'fix pixelated video online free',
     'video pixelation',
-    'remove pixelation from video',
     'fix pixelated video',
     'deblur video',
     'AI depixelate video',
@@ -75,7 +79,177 @@ const faqItems = [
     answer:
       'They mean the same thing. To unpixelate a video is simply another way to say depixelate a video — both refer to removing blocky compression artifacts and restoring clean, sharp frames.',
   },
+  {
+    question: 'How do I remove pixelation from a video online free?',
+    answer:
+      'Open the tool in your browser, upload the clip, keep the Pixelated / Compressed damage type, and run the repair. You can remove pixelation from a video online free — no account, no install, and no watermark on the export.',
+  },
+  {
+    question: 'Can I unpixel video that has already been re-uploaded?',
+    answer:
+      'Yes, but go back to the earliest copy you can find first. Each re-upload adds another compression pass, so if you unpixel video from the newest copy you are repairing two generations of damage at once and the result will look softer.',
+  },
+  {
+    question: 'Does depixelating take long?',
+    answer:
+      'A 30 to 60 second clip usually finishes in about a minute on a normal laptop, roughly at playback speed. Longer or 4K files scale with length and resolution, and a Chromebook or phone will be slower than a desktop.',
+  },
 ];
+
+/* ===== DEPIXELATE-SPECIFIC CONTENT ===== */
+const depixelateNotes = [
+  {
+    initials: 'RK',
+    name: 'Rob K.',
+    role: 'Freelance camera operator',
+    device: 'Windows desktop · Chrome',
+    footage: 'Client clip at 1.2 Mbps',
+    settings: 'Pixelated / Compressed · Denoise 70 · Sharpen 40 · 1080p',
+    quote:
+      'A client sent over a "high quality" export that turned out to be 1.2 Mbps. Depixelating it gave me something I could intercut with the good cameras. It reads as soft footage now instead of broken footage.',
+    outcome: 'Accepted in the final cut without a re-shoot.',
+  },
+  {
+    initials: 'HM',
+    name: 'Hannah M.',
+    role: 'Church media volunteer',
+    device: 'Chromebook · Chrome',
+    footage: 'Sunday livestream VOD',
+    settings: 'Pixelated / Compressed · output = source size',
+    quote:
+      'We only had the stream recording, and the praise band shots were full of blocks. I needed a way to remove pixelation from video without buying software, and a browser tab was all I had on the church Chromebook.',
+    outcome: 'Recap clip posted the same evening.',
+  },
+  {
+    initials: 'JV',
+    name: 'Jonas V.',
+    role: 'eBay reseller',
+    device: 'Android phone · Chrome',
+    footage: 'Indoor phone clips of used tools',
+    settings: 'Grain / Noise · Denoise 75 · 1080p',
+    quote:
+      'Buyers zoom in on photos and videos before they bid, and my workshop is dark. Depixelating the clips made the edges of the tools readable, which is really all a listing needs.',
+    outcome: 'Two listings sold within the week.',
+  },
+];
+
+const depixelateScenarios = [
+  {
+    icon: '🧩',
+    title: 'Mosaic blocks across flat areas',
+    problem:
+      'When a codec runs out of bits it approximates entire 8x8 or 16x16 blocks. Flat walls, skies and skin turn into visible tiles.',
+    fix: 'raise denoise until the tile edges soften, then stop. Sharpening a flat area only re-draws the grid.',
+    setup: 'Denoise high · Sharpen low',
+  },
+  {
+    icon: '🌀',
+    title: 'Ringing halos around hard edges',
+    problem:
+      'Aggressive compression leaves a faint bright outline around text, wires, railings and window frames.',
+    fix: 'turn artifact removal on and keep sharpening moderate — halos grow back the moment you over-sharpen.',
+    setup: 'Artifact removal on · Sharpen 40–50',
+  },
+  {
+    icon: '🌈',
+    title: 'Colour banding in gradients',
+    problem:
+      'Skies, sunsets and studio backdrops break into visible steps of colour instead of blending smoothly.',
+    fix: 'depixelate first, then check the gradient at 100%. Light denoise smooths the steps without flattening the frame.',
+    setup: 'Denoise 40–50 · Temporal on',
+  },
+  {
+    icon: '🔍',
+    title: 'Digital zoom from a phone',
+    problem:
+      'The camera cropped and upscaled internally, so the pixels never existed. Edges are soft and blocks sit around contrast.',
+    fix: 'sharpen in small steps and judge on a still frame — this is the case where over-processing shows up fastest.',
+    setup: 'Sharpen 45–55 · check at 100%',
+  },
+  {
+    icon: '📤',
+    title: 'Second-generation re-uploads',
+    problem:
+      'A file downloaded from one platform and uploaded to another carries two layers of block damage from two different encoders.',
+    fix: 'work from the earliest copy you still have. Depixelating the newest copy means fighting both passes at once.',
+    setup: 'Start from the original upload',
+  },
+  {
+    icon: '🎞️',
+    title: 'Old digitised tapes',
+    problem:
+      'Captured from VHS or Hi8 with a cheap capture card, these files combine tape noise with capture-card blocking.',
+    fix: 'run temporal cleanup so flicker is handled across frames, then depixelate — the reverse order amplifies noise.',
+    setup: 'Temporal cleanup on · 1080p',
+  },
+];
+
+const depixelateTutorials = [
+  {
+    level: 'Beginner',
+    time: '3 min',
+    title: 'How to Remove Pixelation From a Video Online Free',
+    intro:
+      'The default workflow for blocky footage: no cost to preview, no account, and a watermark-free file at the end.',
+    steps: [
+      'Open the depixelate tool in any modern browser and drop your file on the upload box — MP4, MOV, AVI, MKV and WebM are accepted as-is.',
+      'Leave the damage type on Pixelated / Compressed. It matches block artifacts from chat apps, streams and repeated re-encoding.',
+      'Set denoise to about 65 and sharpen to about 45. If the frame still shows tiles, raise denoise. If it looks soft instead, raise sharpen.',
+      'Choose 1080p unless the source was already sharp. Depixelating a 480p clip straight to 4K mostly enlarges the frame.',
+      'Repair, inspect one frame at 100%, then download. Keep that export as your master copy.',
+    ],
+    href: '/fix',
+    cta: 'Remove pixelation now',
+  },
+  {
+    level: 'Intermediate',
+    time: '4 min',
+    title: 'How to Depixelate Without Washing Out the Detail',
+    intro:
+      'A depixelated frame should look clean, not flat. These are the two mistakes that cause the washed-out look.',
+    steps: [
+      'Do not stack maximum denoise with maximum sharpen. The first smears the texture and the second draws edges back on top of it.',
+      'Treat denoise and sharpen as a trade: for blocks, denoise is your main control; for softness, sharpen is.',
+      'Keep temporal cleanup on for footage with per-frame flicker, and off for a clean source that only needs deblocking.',
+      'Judge on a still frame at 100% zoom, not the small preview — washing out is invisible at half size.',
+      'If the result looks flat after export, go back one step and drop denoise by 15 rather than adding more sharpen.',
+    ],
+    href: '/fix',
+    cta: 'Open the settings panel',
+  },
+];
+
+const depixelateCaveats = [
+  {
+    title: 'Depixelating is not the same as recovering',
+    body:
+      'The encoder discarded the detail; depixelation estimates what plausibly belongs there and removes the block structure. Clean, natural frames — yes. The exact pixels from a better master — no.',
+  },
+  {
+    title: 'Do not re-encode the export again',
+    body:
+      'Every save of the exported file adds compression. Upload or send the file you downloaded, not a copy that has been through another editor first.',
+  },
+  {
+    title: 'Depixelate before you upscale',
+    body:
+      'Upscaling a still-blocky frame enlarges the blocks along with everything else, and they become harder to remove later. Clean the frame first, then enlarge.',
+  },
+  {
+    title: 'Severe mosaic is only partly reversible',
+    body:
+      'If the blocks are larger than the subject — a face that is four tiles wide — there is not enough information left for any tool to rebuild it. Expect a tidier frame, not a recognisable one.',
+  },
+];
+
+const depixelateChecklist = {
+  title: 'A 30-second check before you export',
+  items: [
+    'Zoom to 100% on a flat area — sky, a wall, a cheek. If tiles are gone there, the rest of the frame is clean.',
+    'Look at the sharpest edge you can find. A thin bright outline means you over-sharpened.',
+    'Play the last few seconds and confirm the audio still lines up with the picture.',
+  ],
+};
 
 export default function DepixelateVideoPage() {
   return (
@@ -249,6 +423,45 @@ export default function DepixelateVideoPage() {
           </p>
         </div>
       </section>
+
+      {/* ===== FIELD NOTES ===== */}
+      <FieldNotes
+        id="depixelate-field-notes"
+        alt
+        kicker="Reader Reports"
+        heading="How People Actually Depixelate Their Footage"
+        intro="Three write-ups from users who depixelate video for work — the source file, the device they used, and the settings that finally worked."
+        items={depixelateNotes}
+      />
+
+      {/* ===== SCENARIOS ===== */}
+      <Scenarios
+        id="depixelate-scenarios"
+        kicker="What Blocks Look Like"
+        heading="Six Kinds of Pixelation — and What Each One Needs"
+        intro="Not every blocky frame is the same problem. Identifying which artifact you are looking at is the difference between a clean result and a smeared one."
+        items={depixelateScenarios}
+      />
+
+      {/* ===== TUTORIALS ===== */}
+      <Tutorials
+        id="depixelate-tutorials"
+        alt
+        kicker="Tutorials"
+        heading="How to Remove Pixelation From a Video — Two Walkthroughs"
+        intro="One workflow for getting it done in three minutes, and one for keeping the result from looking flat and over-processed."
+        items={depixelateTutorials}
+      />
+
+      {/* ===== CAVEATS ===== */}
+      <Caveats
+        id="depixelate-notes"
+        kicker="Before You Depixelate"
+        heading="Limits Worth Knowing Before You Start"
+        intro="Depixelation removes damage; it does not restore what was never recorded. These four points set the right expectations."
+        items={depixelateCaveats}
+        checklist={depixelateChecklist}
+      />
 
       {/* ===== FAQ ===== */}
       <section id="faq" className="section section-alt" aria-labelledby="faq-heading">

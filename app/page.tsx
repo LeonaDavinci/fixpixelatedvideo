@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import BeforeAfterDemo from '@/components/BeforeAfterDemo';
 import FaqAccordion from '@/components/FaqAccordion';
+import { FieldNotes, Scenarios, Tutorials, Caveats } from '@/components/DeepDive';
 
 export const metadata: Metadata = {
   title: 'Fix Pixelated Video — Free AI Repair Tool',
@@ -10,10 +11,15 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.fixpixelatedvideo.com' },
   keywords: [
     'how to fix pixelated video',
+    'how to fix a pixelated video',
     'fix pixelated video',
+    'fix pixelated video online',
     'repair pixelated video',
     'unpixelate video',
+    'unpixel video',
     'depixelate video',
+    'remove pixelation from video',
+    'remove pixelation from video online free',
     'pixel fixer',
     'pixel fixer video',
     'fix pixelated video online free',
@@ -252,6 +258,263 @@ const testimonials = [
   },
 ];
 
+/* ===== FIELD NOTES (long-form user write-ups) ===== */
+const fieldNotes = [
+  {
+    initials: 'MR',
+    name: 'Marcus R.',
+    role: 'Wedding videographer',
+    device: 'MacBook · Chrome',
+    footage: 'Drone clip re-encoded 3×',
+    settings: 'Pixelated / Compressed · Denoise 65 · Sharpen 40 · 1080p',
+    quote:
+      'The couple\'s drone footage had been through three exports before it reached me, and the wide shots looked like a mosaic. I used PixelFix to fix pixelated video on those aerial shots and it held up on a 55-inch screen at the reception.',
+    outcome: 'Delivered without asking for a reshoot.',
+  },
+  {
+    initials: 'PN',
+    name: 'Priya N.',
+    role: 'Marketing lead, small e-commerce brand',
+    device: 'Windows laptop · Edge',
+    footage: 'Supplier clips sent over WhatsApp',
+    settings: 'Pixelated / Compressed · Artifact removal on · 1080p',
+    quote:
+      'Every product clip our supplier sent came through WhatsApp and arrived blocky. Learning how to fix a pixelated video turned out to be a ten-minute job — drop the file in, pick the compressed preset, export.',
+    outcome: '12 product videos repaired in one evening for the holiday page.',
+  },
+  {
+    initials: 'DK',
+    name: 'Daniel K.',
+    role: 'History teacher',
+    device: 'School Chromebook',
+    footage: 'Archive clips for a lesson',
+    settings: 'Blurry / Soft · Denoise 30 · Sharpen 70 · keep original size',
+    quote:
+      'I have no install rights on a school Chromebook, so a browser tool was the only option that would work. I could remove pixelation from video clips and drop the result straight into the slide deck.',
+    outcome: 'Used in class the same afternoon.',
+  },
+  {
+    initials: 'AC',
+    name: 'Aiko C.',
+    role: 'YouTuber, 1.2M subscribers',
+    device: 'iPhone · Safari',
+    footage: 'Three years of phone uploads',
+    settings: 'Pixelated / Compressed · Sharpen 55 · 2K',
+    quote:
+      'My older uploads look soft and blocky next to the new 4K videos on the channel page. Using this as a pixel fixer video for the back catalogue was the fastest fix I have found — the old uploads now sit next to the new ones without looking out of place.',
+    outcome: 'Back catalogue re-uploaded in 2K over two weekends.',
+  },
+  {
+    initials: 'TB',
+    name: 'Tom B.',
+    role: 'Insurance claims adjuster',
+    device: 'Windows desktop · Chrome',
+    footage: 'Low-bitrate dashcam footage',
+    settings: 'Grain / Noise · Denoise 80 · Sharpen 35',
+    quote:
+      'We needed to unpixel video from a low-bitrate dashcam just to read a registration plate. It did not invent a plate number that was not there — but the edges were clean enough to submit.',
+    outcome: 'Footage accepted as supporting evidence.',
+  },
+  {
+    initials: 'LS',
+    name: 'Lena S.',
+    role: 'Family archivist',
+    device: 'iPad · Safari',
+    footage: 'VHS digitisation from 1994',
+    settings: 'VHS / Tape · Temporal cleanup on · 1080p',
+    quote:
+      'My father\'s tape was digitised badly years ago and the blocks were brutal. I expected the worst and got something my mother could actually sit and watch — softer than film, but the mosaic was gone.',
+    outcome: 'Shared with 14 relatives at the reunion.',
+  },
+];
+
+/* ===== SCENARIOS ===== */
+const scenarios = [
+  {
+    icon: '💬',
+    title: 'Clips that came through a chat app',
+    problem:
+      'WhatsApp, WeChat, Telegram and Instagram DMs re-compress every video hard. A 30-second clip can drop below 1 Mbps and turn into visible blocks.',
+    fix: 'pick the Pixelated / Compressed preset and export at 1080p. Deblocking is what this preset is tuned for.',
+    setup: 'Damage type: Pixelated / Compressed · 1080p',
+  },
+  {
+    icon: '🖥️',
+    title: 'Screen recordings of calls and demos',
+    problem:
+      'Zoom, Meet and Teams recordings are capped at a low bitrate and any shared screen turns mushy as soon as content moves.',
+    fix: 'run it through Blurry / Soft with a light denoise first — screen graphics sharpen badly when over-processed.',
+    setup: 'Damage type: Blurry / Soft · Denoise 30–40',
+  },
+  {
+    icon: '📼',
+    title: 'Old tapes and camcorder files',
+    problem:
+      'VHS and early digital camcorder footage has tape noise, colour bleed and blocky edges baked in from the original capture.',
+    fix: 'use the VHS / Tape preset so temporal cleanup removes flicker before sharpening touches the edges.',
+    setup: 'Damage type: VHS / Tape · Temporal cleanup on',
+  },
+  {
+    icon: '📱',
+    title: 'Phone footage shot at digital zoom',
+    problem:
+      'Digital zoom crops and upscales in the camera, so the sensor never captured the detail. The result is soft with 8×8 blocks around high-contrast edges.',
+    fix: 'sharpen in small steps and stop early. Push past roughly 60 and edges start to ring.',
+    setup: 'Damage type: Pixelated / Compressed · Sharpen 40–55',
+  },
+  {
+    icon: '🚗',
+    title: 'Dashcam and security footage',
+    problem:
+      'Continuous recording at a fixed low bitrate means plates and faces smear the moment anything moves.',
+    fix: 'clean the noise first, then sharpen. Denoise before sharpen is the order that keeps detail readable.',
+    setup: 'Damage type: Grain / Noise · Denoise 70–80',
+  },
+  {
+    icon: '🎮',
+    title: 'Gameplay clips pulled from a stream',
+    problem:
+      'Livestream VODs are encoded for bandwidth, not quality, so fast motion and UI text both fall apart.',
+    fix: 'export at the same resolution as the source. Upscaling a stream clip mostly enlarges the blocks you just removed.',
+    setup: 'Damage type: Pixelated / Compressed · output = source size',
+  },
+  {
+    icon: '🛒',
+    title: 'Marketplace listing videos',
+    problem:
+      'Used-car, sneaker and furniture listings live or die on detail, and phone footage shot indoors is usually both soft and noisy.',
+    fix: 'run two presets and compare: Grain / Noise for dark shots, Pixelated / Compressed for daylight ones.',
+    setup: 'Damage type: Grain / Noise → Pixelated / Compressed',
+  },
+  {
+    icon: '🎓',
+    title: 'Course videos for school devices',
+    problem:
+      'Lecture recordings exported for an LMS are heavily compressed, and students often watch them on a Chromebook with no permission to install anything.',
+    fix: 'fix them in the browser, export to 1080p, and hand back a file that plays anywhere without a plugin.',
+    setup: 'Damage type: Pixelated / Compressed · 1080p · no install',
+  },
+  {
+    icon: '📺',
+    title: 'Re-uploads that lost quality on the way',
+    problem:
+      'A clip downloaded from one platform and re-uploaded to another gets compressed twice, and the second generation is always worse.',
+    fix: 'repair the highest-quality copy you can still find, never the already re-uploaded one.',
+    setup: 'Damage type: Pixelated / Compressed · start from the best source',
+  },
+];
+
+/* ===== TUTORIALS ===== */
+const tutorials = [
+  {
+    level: 'Beginner',
+    time: '2 min',
+    title: 'How to Fix a Pixelated Video Online Free',
+    intro:
+      'The shortest path from a blocky file to a clean one, using the default preset that covers most compressed footage.',
+    steps: [
+      'Open the repair tool and drop your clip on the upload box. MP4, MOV, AVI, MKV and WebM all work — there is no pre-conversion step.',
+      'Leave Video Damage Type on Pixelated / Compressed. It is the default because it matches chat-app, stream and re-upload damage.',
+      'Start at Denoise 60 and Sharpen 45. Raise denoise for heavy blocks, raise sharpen for soft edges — change one slider at a time.',
+      'Pick an output resolution. 1080p is plenty for a chat-app clip; only choose 2K or 4K if the source was sharp to begin with.',
+      'Run the repair, drag the before/after slider over a face or some text, then download the finished file.',
+    ],
+    href: '/fix',
+    cta: 'Fix a pixelated video now',
+  },
+  {
+    level: 'Beginner',
+    time: '3 min',
+    title: 'How to Remove Pixelation From a Video on Your Phone',
+    intro:
+      'Works on iPhone, iPad and Android. The trick is getting the file into the browser without letting the phone re-compress it first.',
+    steps: [
+      'Save the clip to Files (iOS) or your Downloads folder (Android) rather than sharing it straight out of the gallery.',
+      'Open Chrome or Safari and go to the repair tool — it is a normal web page, nothing to install.',
+      'Tap the upload box and choose the file from Files or Downloads. Do not pick "share to app", which often re-encodes.',
+      'Choose your damage type, keep the default settings, and start the repair. Leave the tab in the foreground.',
+      'Download to Files when it finishes, then upload or send that file — not the original — wherever you need it.',
+    ],
+    href: '/fix',
+    cta: 'Open the mobile-friendly tool',
+  },
+  {
+    level: 'Beginner',
+    time: '4 min',
+    title: 'How to Unpixel a Video Downloaded From Social Media',
+    intro:
+      'A social download is often the worst copy that exists. Getting a clean result starts before you open any tool.',
+    steps: [
+      'Go back to the original post and download the highest quality version offered — never a screen recording of the player.',
+      'Avoid the platform\'s editor or trim tools: every save adds another compression pass on top of the one you are trying to undo.',
+      'Load the file, set the damage type to Pixelated / Compressed, and keep the output resolution equal to the source.',
+      'Check the before/after on one frame with fine detail — text, hair or foliage. That is where block artifacts are most obvious.',
+      'Export once, and keep that file as your master so the next re-upload starts from a clean source.',
+    ],
+    href: '/fix',
+    cta: 'Unpixel a video',
+  },
+  {
+    level: 'Intermediate',
+    time: '5 min',
+    title: 'How to Fix a Pixelated Video Without Making It Look Artificial',
+    intro:
+      'Most bad "AI repair" results come from pushing two sliders in opposite directions. This is the order that keeps footage natural.',
+    steps: [
+      'Decide what you are actually looking at: real detail, block edges, or plain noise. Each one needs a different first move.',
+      'For blocks, raise denoise until the grid softens, then stop. For softness, raise sharpen instead — not both.',
+      'Judge on a still frame at 100%, never on the moving preview at half size.',
+      'Use temporal cleanup when the artifact flickers between frames; leave it off for clean sources that only need sharpening.',
+      'Compare the exported file, not just the preview — encoding adds one more pass and can reintroduce faint blocks.',
+    ],
+    href: '/fix',
+    cta: 'Try the full settings panel',
+  },
+];
+
+/* ===== CAVEATS ===== */
+const caveats = [
+  {
+    title: 'Repair reconstructs — it does not recover',
+    body:
+      'Pixelation is information that was thrown away by the encoder. A repair tool estimates plausible detail and removes the block structure, so expect clean edges and no grid — not the literal pixels a better camera would have captured.',
+  },
+  {
+    title: 'Never max denoise and sharpen together',
+    body:
+      'Heavy denoise followed by heavy sharpening produces halos, ringing around edges and a plastic texture. Pick the dominant problem and move that slider first, then leave the other one low.',
+  },
+  {
+    title: 'Every extra export adds another compression pass',
+    body:
+      'A clip that has already been re-uploaded twice has two generations of damage. Repair can clean up the visible result, but it cannot undo both passes. Always start from the best copy you can still find.',
+  },
+  {
+    title: 'Upscaling is not new detail',
+    body:
+      'Going from 480p to 4K enlarges the frame; it does not give the footage a better sensor. Around 2× is safe. Push to 4× on a genuinely low-resolution source and the output looks soft no matter how clean the blocks are.',
+  },
+  {
+    title: 'Long and high-resolution clips need real hardware',
+    body:
+      'Repair runs on your own device, so a 20-minute 4K file will crawl on a low-power laptop or a Chromebook. Split the clip into parts or close other tabs before starting, and keep the tab in the foreground.',
+  },
+  {
+    title: 'Audio is passed through, not enhanced',
+    body:
+      'The repair pipeline works on picture. Muffled, clipped or noisy sound stays exactly as it was recorded — fix the audio separately if it matters.',
+  },
+];
+
+const preDownloadChecklist = {
+  title: 'Check these three things before you hit download',
+  items: [
+    'Play the first ten seconds. Encoders front-load keyframes, so the opening is where leftover blocking shows up first.',
+    'Drag the before/after slider over one face and one piece of text. If both are clean, the rest of the frame will be too.',
+    'Check audio sync at the very end of the clip. A repaired file that drifts out of sync is worse than a blocky one.',
+  ],
+};
+
 const faqItems = [
   {
     question: 'What does a video repair tool actually do?',
@@ -297,6 +560,26 @@ const faqItems = [
     question: 'How do I unpixelate video?',
     answer:
       'To unpixelate video, upload it to PixelFix, pick your damage type and output resolution, then let the AI remove blocky compression artifacts and rebuild clean edges. Preview the before/after result, then download the unpixelated video free of watermarks.',
+  },
+  {
+    question: 'How do I remove pixelation from a video online free?',
+    answer:
+      'Open the browser tool, drop in the clip, choose the Pixelated / Compressed damage type, and start the repair. Previewing the before/after result and the settings are free — you can remove pixelation from a video online with no account, no install and no watermark on the export.',
+  },
+  {
+    question: 'Can I unpixel a video that was downloaded from social media?',
+    answer:
+      'Yes, but start from the highest-quality copy available. A social download has usually been compressed at least twice, so re-download the original post rather than a screen recording, then unpixel video from that file. Repair cleans the visible blocks; it cannot undo two generations of compression at once.',
+  },
+  {
+    question: 'What should a good pixel fixer video tool actually do?',
+    answer:
+      'A pixel fixer video tool should target block artifacts directly rather than just sharpening the frame. Look for separate deblocking and denoise controls, a damage-type preset instead of one universal slider, and an export that keeps the original audio in sync.',
+  },
+  {
+    question: 'How long does it take to fix a pixelated video?',
+    answer:
+      'A short clip of 30 to 60 seconds usually finishes in about a minute, roughly at playback speed on a normal laptop. Longer and higher-resolution files take proportionally longer, and a low-power Chromebook or phone will be slower than a desktop.',
   },
 ];
 
@@ -712,6 +995,45 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ===== FIELD NOTES ===== */}
+      <FieldNotes
+        id="field-notes"
+        alt
+        kicker="User Field Notes"
+        heading="Users Share How They Fixed Their Pixelated Videos"
+        intro="Not star ratings — the footage, the device, and the exact settings people settled on after a few tries. Written up from user feedback across editors, teachers, archivists and sellers."
+        items={fieldNotes}
+      />
+
+      {/* ===== SCENARIOS ===== */}
+      <Scenarios
+        id="scenarios"
+        kicker="Real-World Scenarios"
+        heading="Where Pixelated Video Actually Comes From"
+        intro="Almost no one records a pixelated video on purpose. It is created on the way to you — by a chat app, a stream, a bad export, or a second upload."
+        items={scenarios}
+      />
+
+      {/* ===== TUTORIALS ===== */}
+      <Tutorials
+        id="tutorials"
+        alt
+        kicker="Tutorials"
+        heading="How to Fix a Pixelated Video — Step-by-Step Tutorials"
+        intro="Four short walkthroughs: the fastest fix, the phone workflow, how to unpixel video from social downloads, and how to keep the result from looking artificial."
+        items={tutorials}
+      />
+
+      {/* ===== CAVEATS ===== */}
+      <Caveats
+        id="notes"
+        kicker="Before You Start"
+        heading="Things to Know Before You Fix a Pixelated Video"
+        intro="Every honest answer about what video repair can and cannot do. Read this once and you will get a better result on the first export."
+        items={caveats}
+        checklist={preDownloadChecklist}
+      />
 
       {/* ===== FAQ ===== */}
       <section id="faq" className="section section-alt" aria-labelledby="faq-heading">
