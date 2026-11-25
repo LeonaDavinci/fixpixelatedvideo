@@ -6,7 +6,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 export const metadata: Metadata = {
   title: 'Fix Pixelated Video — Free AI Repair Tool',
   description:
-    'Fix pixelated video online free with AI. Remove blocky compression artifacts and upscale footage to 4K—no install, no watermark.',
+    'Fix pixelated video online free with AI — unpixelate video, remove blocky compression artifacts, and upscale to 4K. No install, no watermark.',
   alternates: { canonical: 'https://www.fixpixelatedvideo.com' },
   keywords: [
     'how to fix pixelated video',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Fix Pixelated Video — Free AI Repair Tool',
     description:
-      'Repair pixelated, blocky video with AI. Remove compression artifacts and upscale footage to 4K for free—no watermark.',
+      'Repair pixelated, blocky video with AI — unpixelate video and upscale to 4K for free, no watermark.',
     url: 'https://www.fixpixelatedvideo.com',
   },
 };
@@ -294,9 +294,9 @@ const faqItems = [
       'Absolutely. PixelFix is fully browser-based, so you can fix pixelated video on Chromebook or any ChromeOS device without installing software or extensions. Just open Chrome, upload your clip, and repair it online — no app needed.',
   },
   {
-    question: 'How do I unpixelate a video?',
+    question: 'How do I unpixelate video?',
     answer:
-      'To unpixelate a video, upload it to PixelFix, pick your damage type and output resolution, then let the AI remove blocky compression artifacts and rebuild clean edges. Preview the before/after result, then download the unpixelated video free of watermarks.',
+      'To unpixelate video, upload it to PixelFix, pick your damage type and output resolution, then let the AI remove blocky compression artifacts and rebuild clean edges. Preview the before/after result, then download the unpixelated video free of watermarks.',
   },
 ];
 
@@ -366,7 +366,8 @@ export default function HomePage() {
               <p className="hero-desc">
                 Stop struggling with blocky, blurry, or damaged footage. Our AI
                 reconstructs every frame — removing pixelation, compression artifacts,
-                and blur — restoring your video to clean, sharp clarity up to 4K.
+                and blur — so you can unpixelate video and restore clean, sharp clarity
+                up to 4K.
               </p>
               <div className="hero-cta">
                 <Link href="/fix" className="btn btn-primary btn-large">
@@ -514,7 +515,7 @@ export default function HomePage() {
       <section id="features" className="section section-alt" aria-labelledby="features-heading">
         <div className="container text-center">
           <span className="badge">Product Features</span>
-          <h2 id="features-heading">Everything You Need to Unpixelate and Restore Video</h2>
+          <h2 id="features-heading">Everything You Need to Unpixelate Video and Restore Clarity</h2>
           <p style={{ maxWidth: 600, margin: '12px auto 0' }}>
             A complete toolkit powered by advanced deep learning, built for everyone
             from creators to archivists.
